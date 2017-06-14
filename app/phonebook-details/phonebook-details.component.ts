@@ -1,20 +1,20 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Phrase } from "../shared/phrase";
-import { PhraseService } from "../shared/phrase.service";
+import { Phonebook } from "../shared/phonebook";
+import { PhonebookService } from "../shared/phonebook.service";
 
 @Component({
     moduleId: module.id,
     selector: "phrase-details",
-    templateUrl: "phrase-details.component.html"
+    templateUrl: "phonebook-details.component.html"
 })
-export class PhraseDetailsComponent implements OnInit {
-    phrase: Phrase;
+export class PhonebookDetailsComponent implements OnInit {
+    phonebook: Phonebook;
 
     // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet
     constructor(private router: Router,
                 private activatedRoute: ActivatedRoute,
-                private service: PhraseService) {
+                private service: PhonebookService) {
     }
 
     ngOnInit() {
@@ -27,7 +27,7 @@ export class PhraseDetailsComponent implements OnInit {
             let id = +params["id"]; // конвертируем значение параметра id в тип number
             this.service
                 .getPhrase(id)  // обращаемся к сервису и запрашиваем фразу по id. Получаем Promise
-                .then(result => this.phrase = result);  // как только Promise перейдет в состояние resolved присваиваем его значение свойству phrase
+                .then(result => this.phonebook = result);  // как только Promise перейдет в состояние resolved присваиваем его значение свойству phonebook
         });
 
         // SNAPSHOT
@@ -35,10 +35,10 @@ export class PhraseDetailsComponent implements OnInit {
         /*let id = +this.activatedRoute.snapshot.params["id"];
         this.service
             .getPhrase(id)
-            .then(result => this.phrase = result); */
+            .then(result => this.phonebook = result); */
     }
 
-    goToPhrasesList() {
-        this.router.navigate(["phrases"]); // перенаправляем пользователя на PhraseListComponent
+    goToPhonebooksList() {
+        this.router.navigate(["phonebooks"]); // перенаправляем пользователя на PhonebookListComponent
     }
 }

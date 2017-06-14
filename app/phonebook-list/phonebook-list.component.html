@@ -10,12 +10,12 @@
         <!--<th>Navbar</th>-->
     </tr>
     </thead>
-    <tbody *ngFor="let phrase of phrases" (click)="onSelect(phrase)">
+    <tbody *ngFor="let phonebook of phonebooks" (click)="onSelect(phonebook)">
     <tr>
-        <td>{{phrase.id}}</td>
-        <td>{{phrase.firstName}}</td>
-        <td>{{phrase.secondName}}</td>
-        <td>{{phrase.phone}}</td>
+        <td>{{phonebook.id}}</td>
+        <td>{{phonebook.firstName}}</td>
+        <td>{{phonebook.secondName}}</td>
+        <td>{{phonebook.phone}}</td>
     </tr>
     </tbody>
 </table>

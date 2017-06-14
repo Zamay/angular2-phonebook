@@ -1,14 +1,14 @@
 import { Component } from "@angular/core";
-import {Phrase} from "../shared/phrase";
+import {Phonebook} from "../shared/phonebook";
 
 
 @Component({
     moduleId: module.id,
     selector: "my-add",
-    templateUrl: "add.component.html",
-    styleUrls: ["add.component.css"]
+    templateUrl: "add-user.component.html",
+    styleUrls: ["add-user.component.css"]
 })
-export class AddComponent{
+export class AddUserComponent{
 
 
     onSabmit(){

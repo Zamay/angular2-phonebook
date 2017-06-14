@@ -1,4 +1,4 @@
-export class Phrase {
+export class Phonebook {
     constructor(public id: number,
                 public firstName: string,
                 public secondName: string,

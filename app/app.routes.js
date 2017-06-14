@@ -1,26 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 // import { HomeComponent } from "./home/home.component";
-var phrase_list_component_1 = require("./phrase-list/phrase-list.component");
-var phrase_details_component_1 = require("./phrase-details/phrase-details.component");
-var add_component_1 = require("./add/add.component");
+var phonebook_list_component_1 = require("./phonebook-list/phonebook-list.component");
+var phonebook_details_component_1 = require("./phonebook-details/phonebook-details.component");
+var add_user_component_1 = require("./add-user/add-user.component");
 exports.routes = [
     {
         path: "",
-        redirectTo: "phrases",
+        redirectTo: "phonebooks",
         pathMatch: "full"
     },
     {
-        path: "phrases",
-        component: phrase_list_component_1.PhraseListComponent
+        path: "phonebooks",
+        component: phonebook_list_component_1.PhonebookListComponent
     },
     {
-        path: "phrase/:id",
-        component: phrase_details_component_1.PhraseDetailsComponent
+        path: "phonebook/:id",
+        component: phonebook_details_component_1.PhonebookDetailsComponent
     },
     {
         path: "add",
-        component: add_component_1.AddComponent
+        component: add_user_component_1.AddUserComponent
     }
 ];
 //# sourceMappingURL=app.routes.js.map

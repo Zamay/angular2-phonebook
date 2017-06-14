@@ -1,26 +1,26 @@
 import { Routes } from "@angular/router";
 // import { HomeComponent } from "./home/home.component";
-import { PhraseListComponent } from "./phrase-list/phrase-list.component";
-import { PhraseDetailsComponent } from "./phrase-details/phrase-details.component";
-import {AddComponent} from "./add/add.component";
+import { PhonebookListComponent } from "./phonebook-list/phonebook-list.component";
+import { PhonebookDetailsComponent } from "./phonebook-details/phonebook-details.component";
+import {AddUserComponent} from "./add-user/add-user.component";
 
 export const routes: Routes = [
     {
         path: "",
-        redirectTo: "phrases",
+        redirectTo: "phonebooks",
         pathMatch: "full"
     },
     {
-        path: "phrases",
-        component: PhraseListComponent
+        path: "phonebooks",
+        component: PhonebookListComponent
     },
     {
-        path: "phrase/:id",
-        component: PhraseDetailsComponent
+        path: "phonebook/:id",
+        component: PhonebookDetailsComponent
     },
     {
         path: "add",
-        component: AddComponent
+        component: AddUserComponent
     }
 
 ];

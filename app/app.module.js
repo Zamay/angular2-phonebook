@@ -12,11 +12,11 @@ var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 // components
-var phrase_details_component_1 = require("./phrase-details/phrase-details.component");
-var phrase_list_component_1 = require("./phrase-list/phrase-list.component");
+var phonebook_details_component_1 = require("./phonebook-details/phonebook-details.component");
+var phonebook_list_component_1 = require("./phonebook-list/phonebook-list.component");
 // services
-var phrase_service_1 = require("./shared/phrase.service");
-var add_component_1 = require("./add/add.component");
+var phonebook_service_1 = require("./shared/phonebook.service");
+var add_user_component_1 = require("./add-user/add-user.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,8 +28,8 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             router_1.RouterModule.forRoot(app_routes_1.routes)
         ],
-        declarations: [app_component_1.AppComponent, add_component_1.AddComponent, phrase_details_component_1.PhraseDetailsComponent, phrase_list_component_1.PhraseListComponent],
-        providers: [phrase_service_1.PhraseService],
+        declarations: [app_component_1.AppComponent, add_user_component_1.AddUserComponent, phonebook_details_component_1.PhonebookDetailsComponent, phonebook_list_component_1.PhonebookListComponent],
+        providers: [phonebook_service_1.PhonebookService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
