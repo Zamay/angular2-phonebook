@@ -16,6 +16,7 @@ var phrase_details_component_1 = require("./phrase-details/phrase-details.compon
 var phrase_list_component_1 = require("./phrase-list/phrase-list.component");
 // services
 var phrase_service_1 = require("./shared/phrase.service");
+var add_component_1 = require("./add/add.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +28,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             router_1.RouterModule.forRoot(app_routes_1.routes)
         ],
-        declarations: [app_component_1.AppComponent, phrase_details_component_1.PhraseDetailsComponent, phrase_list_component_1.PhraseListComponent],
+        declarations: [app_component_1.AppComponent, add_component_1.AddComponent, phrase_details_component_1.PhraseDetailsComponent, phrase_list_component_1.PhraseListComponent],
         providers: [phrase_service_1.PhraseService],
         bootstrap: [app_component_1.AppComponent]
     })

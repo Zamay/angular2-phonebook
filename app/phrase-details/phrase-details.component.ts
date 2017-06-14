@@ -9,7 +9,6 @@ import { PhraseService } from "../shared/phrase.service";
     templateUrl: "phrase-details.component.html"
 })
 export class PhraseDetailsComponent implements OnInit {
-    name: string = "Tom";
     phrase: Phrase;
 
     // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet

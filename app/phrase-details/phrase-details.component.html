@@ -23,9 +23,7 @@
         </tbody>
     </table>
 
-    <button (click)="goToPhrasesList()">Go Back</button>
+    <button (click)="goToPhrasesList()"   class="btn btn-primary">Назад</button>
+    <button (click)="editPhrasesList()"   class="btn btn-primary">Редактировать</button>
+    <button (click)="deletePhrasesList()" class="btn btn-danger">Удалить</button>
 </div>
-
-<input type="text" [(ngModel)]="phrase.firstName" />
-
-<!--<input type="text" [(ngModel)]="name" />-->
