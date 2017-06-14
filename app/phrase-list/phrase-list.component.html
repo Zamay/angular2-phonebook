@@ -1,7 +1,21 @@
-<h2>Phrases</h2>
-<ul class="phrases">
-    <li *ngFor="let phrase of phrases"
-        (click)="onSelect(phrase)">
-        {{phrase.value}}
-    </li>
-</ul>
+<h2>Справочник телефонных номеров</h2>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Телефон</th>
+        <!--<th>Navbar</th>-->
+    </tr>
+    </thead>
+    <tbody *ngFor="let phrase of phrases" (click)="onSelect(phrase)">
+    <tr>
+        <td>{{phrase.id}}</td>
+        <td>{{phrase.firstName}}</td>
+        <td>{{phrase.secondName}}</td>
+        <td>{{phrase.phone}}</td>
+    </tr>
+    </tbody>
+</table>

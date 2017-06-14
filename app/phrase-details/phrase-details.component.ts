@@ -9,13 +9,14 @@ import { PhraseService } from "../shared/phrase.service";
     templateUrl: "phrase-details.component.html"
 })
 export class PhraseDetailsComponent implements OnInit {
-
+    name: string = "Tom";
     phrase: Phrase;
 
     // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet
     constructor(private router: Router,
-        private activatedRoute: ActivatedRoute,
-        private service: PhraseService) { }
+                private activatedRoute: ActivatedRoute,
+                private service: PhraseService) {
+    }
 
     ngOnInit() {
         // params - параметры текущего маршрута. Данное свойство является Observable объектом
@@ -34,8 +35,8 @@ export class PhraseDetailsComponent implements OnInit {
         // получение начального значения параметра id 
         /*let id = +this.activatedRoute.snapshot.params["id"];
         this.service
-            .getPhrase(id)  
-            .then(result => this.phrase = result); */ 
+            .getPhrase(id)
+            .then(result => this.phrase = result); */
     }
 
     goToPhrasesList() {

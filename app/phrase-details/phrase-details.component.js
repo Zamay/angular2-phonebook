@@ -18,6 +18,7 @@ var PhraseDetailsComponent = (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.service = service;
+        this.name = "Tom";
     }
     PhraseDetailsComponent.prototype.ngOnInit = function () {
         // params - параметры текущего маршрута. Данное свойство является Observable объектом

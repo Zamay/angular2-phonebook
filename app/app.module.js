@@ -12,7 +12,6 @@ var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var app_routes_1 = require("./app.routes");
 // components
-var home_component_1 = require("./home/home.component");
 var phrase_details_component_1 = require("./phrase-details/phrase-details.component");
 var phrase_list_component_1 = require("./phrase-list/phrase-list.component");
 // services
@@ -28,7 +27,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             router_1.RouterModule.forRoot(app_routes_1.routes)
         ],
-        declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, phrase_details_component_1.PhraseDetailsComponent, phrase_list_component_1.PhraseListComponent],
+        declarations: [app_component_1.AppComponent, phrase_details_component_1.PhraseDetailsComponent, phrase_list_component_1.PhraseListComponent],
         providers: [phrase_service_1.PhraseService],
         bootstrap: [app_component_1.AppComponent]
     })

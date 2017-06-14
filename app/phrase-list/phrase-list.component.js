@@ -24,6 +24,7 @@ var PhraseListComponent = (function () {
             .then(function (result) { return _this.phrases = result; }); // как только Promise перейдет в состояние resolved результат его работы присваиваем свойству phrases
     };
     PhraseListComponent.prototype.onSelect = function (selected) {
+        console.log(selected);
         // При клике по элементу списка перенаправляем пользователя по адресу /phrases/id
         // адрес с обязательным параметром указан в настройках маршрутизации в файле app.routes.ts 
         this.router.navigate(["phrase", selected.id]);

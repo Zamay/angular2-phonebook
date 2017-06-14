@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Phrase = (function () {
-    function Phrase(id, value, language) {
+    function Phrase(id, firstName, secondName, phone, address, createdAt) {
         this.id = id;
-        this.value = value;
-        this.language = language;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.phone = phone;
+        this.address = address;
+        this.createdAt = createdAt;
     }
     return Phrase;
 }());

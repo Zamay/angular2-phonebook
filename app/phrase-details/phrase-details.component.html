@@ -1,7 +1,31 @@
 <div *ngIf="phrase">
-	<h2>Selected Phrase</h2>
-	Value: {{phrase.value}} <br /> 
-    Language: {{phrase.language}} <br />
+	<h2>Подробная инфа о {{phrase.firstName + ' ' + phrase.secondName}}</h2>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Телефон</th>
+            <th>Адресс</th>
+            <th>Дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{phrase.id}}</td>
+            <td>{{phrase.firstName}}</td>
+            <td>{{phrase.secondName}}</td>
+            <td>{{phrase.phone}}</td>
+            <td>{{phrase.address}}</td>
+            <td>{{phrase.createdAt}}</td>
+        </tr>
+        </tbody>
+    </table>
 
     <button (click)="goToPhrasesList()">Go Back</button>
 </div>
+
+<!--<input type="text" [(ngModel)]="phrase.firstName" />-->
+
+<!--<input type="text" [(ngModel)]="name" />-->
