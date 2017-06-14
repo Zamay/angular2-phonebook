@@ -11,16 +11,16 @@ exports.routes = [
         pathMatch: "full"
     },
     {
-        path: "add",
-        component: add_component_1.AddComponent
-    },
-    {
         path: "phrases",
         component: phrase_list_component_1.PhraseListComponent
     },
     {
         path: "phrase/:id",
         component: phrase_details_component_1.PhraseDetailsComponent
+    },
+    {
+        path: "add",
+        component: add_component_1.AddComponent
     }
 ];
 //# sourceMappingURL=app.routes.js.map

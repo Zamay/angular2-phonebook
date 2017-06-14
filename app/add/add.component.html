@@ -1,33 +1,47 @@
 <div class="container">
-    <h3>User Registartion</h3>
-    <!--Angular автоматически устанавливает директиву ngForm для всех форм-->
-    <form (ngSubmit)="onSubmit()" #userform="ngForm">
+    <h3>Добавить пользователя</h3>
+    <form class="form-horizontal">
         <div class="form-group">
-            <label for="name">Имя</label>
-            <input type="text" class="form-control" id="name"
-                   required [(ngModel)]="model.name" name="name" #name="ngModel">
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                Поле имя обязательное для заполнения
+            <label for="id" class="col-sm-2 control-label">id</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control" required id="id" placeholder="id">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label" >Имя</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" required id="name" placeholder="firstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name1" class="col-sm-2 control-label">Фамилия</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" required id="name1" placeholder="lastName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">Номер</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" required id="phone" placeholder="phone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">Адрес</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" required id="address" placeholder="address">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="date" class="col-sm-2 control-label">Дата</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" required id="date" placeholder="date">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="alterEgo">Возраст</label>
-            <input type="number" class="form-control" id="age"
-                   [(ngModel)]="model.age" name="age" required #age="ngModel">
-            <div [hidden]="age.valid || age.pristine" class="alert alert-danger">
-                Поле возраст обязательное для заполнения
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Сохранить</button>
             </div>
         </div>
-
-        <!--<div class="form-group">-->
-            <!--<label for="alterEgo">Роль</label>-->
-            <!--<select class="form-control" id="role" required-->
-                    <!--[(ngModel)]="model.role" name="role">-->
-                <!--<option *ngFor="let r of roles" [value]="r">{{r}}</option>-->
-            <!--</select>-->
-        <!--</div>-->
-
-        <button type="submit" class="btn btn-default" [disabled]="!userform.form.valid">Submit</button>
     </form>
 </div>

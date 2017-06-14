@@ -11,16 +11,16 @@ export const routes: Routes = [
         pathMatch: "full"
     },
     {
-        path: "add",
-        component: AddComponent
-    },
-    {
         path: "phrases",
         component: PhraseListComponent
     },
     {
         path: "phrase/:id",
         component: PhraseDetailsComponent
+    },
+    {
+        path: "add",
+        component: AddComponent
     }
 
 ];

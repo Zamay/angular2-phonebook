@@ -10,13 +10,17 @@ var core_1 = require("@angular/core");
 var AddComponent = (function () {
     function AddComponent() {
     }
+    AddComponent.prototype.onSabmit = function () {
+        console.log("submitted");
+    };
     return AddComponent;
 }());
 AddComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: "my-add",
-        template: "<h2>Добавить телефон</h2>"
+        templateUrl: "add.component.html",
+        styleUrls: ["add.component.css"]
     })
 ], AddComponent);
 exports.AddComponent = AddComponent;

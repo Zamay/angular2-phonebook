@@ -1,8 +1,17 @@
 import { Component } from "@angular/core";
+import {Phrase} from "../shared/phrase";
+
 
 @Component({
     moduleId: module.id,
     selector: "my-add",
-    template: "<h2>Добавить телефон</h2>"
+    templateUrl: "add.component.html",
+    styleUrls: ["add.component.css"]
 })
-export class AddComponent{ }
+export class AddComponent{
+
+
+    onSabmit(){
+        console.log("submitted");
+    }
+}
