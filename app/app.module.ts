@@ -6,20 +6,21 @@ import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
 
 // components
-import { HomeComponent } from "./home/home.component";
-import { PhraseDetailsComponent } from "./phrase-details/phrase-details.component";
-import { PhraseListComponent } from "./phrase-list/phrase-list.component";
+
+import { PhonebookDetailsComponent } from "./phonebook-details/phonebook-details.component";
+import { PhonebookListComponent } from "./phonebook-list/phonebook-list.component";
 
 // services
-import { PhraseService } from "./shared/phrase.service";
+import { PhonebookService } from "./shared/phonebook.service";
+import {AddUserComponent} from "./add-user/add-user.component";
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(routes)
     ],
-    declarations: [AppComponent, HomeComponent, PhraseDetailsComponent, PhraseListComponent],
-    providers: [PhraseService],
+    declarations: [AppComponent, AddUserComponent, PhonebookDetailsComponent, PhonebookListComponent],
+    providers: [PhonebookService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

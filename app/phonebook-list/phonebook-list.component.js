@@ -11,34 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var phrase_service_1 = require("../shared/phrase.service");
-var PhraseListComponent = (function () {
-    function PhraseListComponent(router, phraseService) {
+var phonebook_service_1 = require("../shared/phonebook.service");
+var PhonebookListComponent = (function () {
+    function PhonebookListComponent(router, phraseService) {
         this.router = router;
         this.phraseService = phraseService;
     }
-    PhraseListComponent.prototype.ngOnInit = function () {
+    PhonebookListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.phraseService // обращаемся к сервису
             .getAll() // получаем Promise 
-            .then(function (result) { return _this.phrases = result; }); // как только Promise перейдет в состояние resolved результат его работы присваиваем свойству phrases
+            .then(function (result) { return _this.phonebooks = result; }); // как только Promise перейдет в состояние resolved результат его работы присваиваем свойству phonebooks
     };
-    PhraseListComponent.prototype.onSelect = function (selected) {
-        // При клике по элементу списка перенаправляем пользователя по адресу /phrases/id
+    PhonebookListComponent.prototype.onSelect = function (selected) {
+        console.log(selected);
+        // При клике по элементу списка перенаправляем пользователя по адресу /phonebooks/id
         // адрес с обязательным параметром указан в настройках маршрутизации в файле app.routes.ts 
-        this.router.navigate(["phrase", selected.id]);
+        this.router.navigate(["phonebook", selected.id]);
     };
-    return PhraseListComponent;
+    return PhonebookListComponent;
 }());
-PhraseListComponent = __decorate([
+PhonebookListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: "phrase-list",
-        templateUrl: "phrase-list.component.html",
-        styleUrls: ["phrase-list.component.css"]
+        templateUrl: "phonebook-list.component.html",
+        styleUrls: ["phonebook-list.component.css"]
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        phrase_service_1.PhraseService])
-], PhraseListComponent);
-exports.PhraseListComponent = PhraseListComponent;
-//# sourceMappingURL=phrase-list.component.js.map
+        phonebook_service_1.PhonebookService])
+], PhonebookListComponent);
+exports.PhonebookListComponent = PhonebookListComponent;
+//# sourceMappingURL=phonebook-list.component.js.map

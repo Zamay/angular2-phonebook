@@ -578,7 +578,7 @@ interface ObjectConstructor {
 
     /**
       * Adds a property to an object, or modifies attributes of an existing property.
-      * @param o Object on which to add or modify the property. This can be a native JavaScript
+      * @param o Object on which to add-user or modify the property. This can be a native JavaScript
       * object (that is, a user-defined object or a built in object) or a DOM object.
       * @param p The property name.
       * @param attributes Descriptor for the property. It can be for a data property or an accessor
@@ -922,7 +922,7 @@ interface ArrayConstructor {
     pop<T>(array: ArrayLike<T>): T;
     /**
       * Combines two or more arrays.
-      * @param items Additional items to add to the end of array1.
+      * @param items Additional items to add-user to the end of array1.
       */
     concat<T>(array: ArrayLike<T>, ...items: (T[]| T)[]): T[];
     /**

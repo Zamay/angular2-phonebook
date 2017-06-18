@@ -7,17 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var HomeComponent = (function () {
-    function HomeComponent() {
+var AddUserComponent = (function () {
+    function AddUserComponent() {
     }
-    return HomeComponent;
+    AddUserComponent.prototype.onSabmit = function () {
+        console.log("submitted");
+    };
+    return AddUserComponent;
 }());
-HomeComponent = __decorate([
+AddUserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: "my-home",
-        template: "<h2>This is Home Page</h2>"
+        selector: "my-add",
+        templateUrl: "add-user.component.html",
+        styleUrls: ["add-user.component.css"]
     })
-], HomeComponent);
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+], AddUserComponent);
+exports.AddUserComponent = AddUserComponent;
+//# sourceMappingURL=add-user.component.js.map
