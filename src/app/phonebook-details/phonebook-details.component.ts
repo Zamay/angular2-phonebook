@@ -6,7 +6,8 @@ import { PhonebookService } from "../shared/phonebook.service";
 @Component({
     moduleId: module.id,
     selector: "phrase-details",
-    templateUrl: "phonebook-details.component.html"
+    templateUrl: "phonebook-details.component.html",
+    styleUrls: ["phonebook-details.component.css","../../../node_modules/bootstrap/dist/css/bootstrap.css"]
 })
 export class PhonebookDetailsComponent implements OnInit {
     phonebook: Phonebook;
@@ -31,7 +32,7 @@ export class PhonebookDetailsComponent implements OnInit {
         });
 
         // SNAPSHOT
-        // получение начального значения параметра id 
+        // получение начального значения параметра id
         /*let id = +this.activatedRoute.snapshot.params["id"];
         this.service
             .getPhrase(id)
