@@ -15,7 +15,7 @@ var app_routes_1 = require("./app.routes");
 var phonebook_details_component_1 = require("./phonebook-details/phonebook-details.component");
 var phonebook_list_component_1 = require("./phonebook-list/phonebook-list.component");
 // services
-var phonebook_service_1 = require("./shared/phonebook.service");
+var phonebook_service_1 = require("./service/phonebook.service");
 var add_user_component_1 = require("./add-user/add-user.component");
 var AppModule = (function () {
     function AppModule() {

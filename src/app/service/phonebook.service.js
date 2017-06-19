@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var phonebook_1 = require("./phonebook");
+var phonebook_1 = require("../phonebook");
 var phonebooks = [
     new phonebook_1.Phonebook(1, "firstName 1", "secondName 1", "phone 1", "addressnew 1", 14863243134),
     new phonebook_1.Phonebook(2, "firstName 2", "secondName 2", "phone 2", "addressnew 2", 14863243134),

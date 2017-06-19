@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import {Phonebook} from "../shared/phonebook";
+import {Phonebook} from "../phonebook";
 
 
 @Component({

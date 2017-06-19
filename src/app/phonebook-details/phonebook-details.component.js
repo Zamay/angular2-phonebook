@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var phonebook_service_1 = require("../shared/phonebook.service");
+var phonebook_service_1 = require("../service/phonebook.service");
 var PhonebookDetailsComponent = (function () {
     // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet
     function PhonebookDetailsComponent(router, activatedRoute, service) {
@@ -32,7 +32,7 @@ var PhonebookDetailsComponent = (function () {
                 .then(function (result) { return _this.phonebook = result; }); // как только Promise перейдет в состояние resolved присваиваем его значение свойству phonebook
         });
         // SNAPSHOT
-        // получение начального значения параметра id 
+        // получение начального значения параметра id
         /*let id = +this.activatedRoute.snapshot.params["id"];
         this.service
             .getPhrase(id)

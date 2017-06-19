@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var phonebook_service_1 = require("../shared/phonebook.service");
+var phonebook_service_1 = require("../service/phonebook.service");
 var PhonebookListComponent = (function () {
     function PhonebookListComponent(router, phraseService) {
         this.router = router;
@@ -20,13 +20,13 @@ var PhonebookListComponent = (function () {
     PhonebookListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.phraseService // обращаемся к сервису
-            .getAll() // получаем Promise 
+            .getAll() // получаем Promise
             .then(function (result) { return _this.phonebooks = result; }); // как только Promise перейдет в состояние resolved результат его работы присваиваем свойству phonebooks
     };
     PhonebookListComponent.prototype.onSelect = function (selected) {
         console.log(selected);
         // При клике по элементу списка перенаправляем пользователя по адресу /phonebooks/id
-        // адрес с обязательным параметром указан в настройках маршрутизации в файле app.routes.ts 
+        // адрес с обязательным параметром указан в настройках маршрутизации в файле app.routes.ts
         this.router.navigate(["phonebook", selected.id]);
     };
     return PhonebookListComponent;

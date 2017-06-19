@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { Phonebook } from "../shared/phonebook";
-import { PhonebookService } from "../shared/phonebook.service";
+import { Location } from '@angular/common';
+
+import { Phonebook } from "../phonebook";
+import { PhonebookService } from "../service/phonebook.service";
 
 @Component({
     moduleId: module.id,
@@ -13,13 +15,15 @@ export class PhonebookDetailsComponent implements OnInit {
     phonebook: Phonebook;
 
     // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet
-    constructor(private router: Router,
-                private activatedRoute: ActivatedRoute,
-                private service: PhonebookService) {
-    }
+    constructor(
+      // private router: Router,
+      private activatedRoute: ActivatedRoute,
+      private service: PhonebookService,
+      private location: Location
+    ) { }
 
-    ngOnInit() {
-        // params - параметры текущего маршрута. Данное свойство является Observable объектом
+    ngOnInit(): void {
+        // phonebook - параметры текущего маршрута. Данное свойство является Observable объектом
         // Если параметры будут изменены - произойдет событие и компонент узнает о изменениях.
 
         // OBSERVABLE PARAMS
@@ -30,16 +34,10 @@ export class PhonebookDetailsComponent implements OnInit {
                 .getPhrase(id)  // обращаемся к сервису и запрашиваем фразу по id. Получаем Promise
                 .then(result => this.phonebook = result);  // как только Promise перейдет в состояние resolved присваиваем его значение свойству phonebook
         });
-
-        // SNAPSHOT
-        // получение начального значения параметра id
-        /*let id = +this.activatedRoute.snapshot.params["id"];
-        this.service
-            .getPhrase(id)
-            .then(result => this.phonebook = result); */
     }
 
     goToPhonebooksList() {
-        this.router.navigate(["phonebooks"]); // перенаправляем пользователя на PhonebookListComponent
+        // this.router.navigate(["phonebooks"]); // перенаправляем пользователя на PhonebookListComponent
+      this.location.back();
     }
 }

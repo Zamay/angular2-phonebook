@@ -1,18 +1,13 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
-
 import { AppComponent } from "./app.component";
 import { routes } from "./app.routes";
 
-// components
-
 import { PhonebookDetailsComponent } from "./phonebook-details/phonebook-details.component";
 import { PhonebookListComponent } from "./phonebook-list/phonebook-list.component";
-
-// services
-import { PhonebookService } from "./shared/phonebook.service";
-import {AddUserComponent} from "./add-user/add-user.component";
+import { PhonebookService } from "./service/phonebook.service";
+import { AddUserComponent } from "./add-user/add-user.component";
 
 @NgModule({
     imports: [
