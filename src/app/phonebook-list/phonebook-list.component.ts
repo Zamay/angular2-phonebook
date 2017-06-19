@@ -2,7 +2,10 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router"
 
 import {Phonebook} from "../phonebook";
-import {PhonebookService} from "../service/phonebook.service";
+import {HttpService} from "../service/http.service";
+import {Response} from "@angular/http";
+
+
 
 @Component({
   moduleId: module.id,
@@ -16,19 +19,15 @@ export class PhonebookListComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private phraseService: PhonebookService
+    private httpService: HttpService
   ) { }
 
-  ngOnInit(): void {
-    this.phraseService // обращаемся к сервису
-      .getAll()   // получаем Promise
-      .then(result => this.phonebooks = result); // как только Promise перейдет в состояние resolved результат его работы присваиваем свойству phonebooks
+  ngOnInit() {
+    this.httpService.getData().subscribe(resp => this.phonebooks = resp);
   }
 
   onSelect(selected: Phonebook) {
-    console.log(selected);
-    // При клике по элементу списка перенаправляем пользователя по адресу /phonebooks/id
-    // адрес с обязательным параметром указан в настройках маршрутизации в файле app.routes.ts
+    // console.log(selected);
     this.router.navigate(["phonebook", selected.id]);
   }
 }
