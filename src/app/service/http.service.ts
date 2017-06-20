@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Headers, Http, Response} from '@angular/http';
+import {Headers, Http, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import {Phonebook} from "../phonebook";
@@ -7,38 +7,40 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class HttpService {
-  users: Phonebook[] = [];
-  users1: Phonebook[] = [];
+  private userUrl = 'http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones';
 
   constructor( private http: Http){}
 
   // Метод для получения всех ...
   getData(): Observable<Phonebook[]> {
-    return this.http.get('http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones')
-      .map((resp: Response) => {
-
-        let usersList = resp.json();
-        for (let index in usersList) {
-          let user = usersList[index];
-          this.users.push({
-            id: user.id,
-            firstName: user.firstName,
-            secondName: user.secondName,
-            phone: user.phone,
-            address: user.address,
-            createdAt: user.createdAt
-          });
-        }
-        // console.log(this.users);
-        return this.users;
-      });
+    return this.http.get(this.userUrl)
+      .map((resp: Response) => resp.json());
   }
 
   // Метод для получения фразы по id.
-  getPhonobook(id: number){
-    for (let a in this.users){
-      if (this.users[a].id == id ) return this.users[a];
-    }
+  getPhonobook(id: string): Observable<any>{
+    return this.http.get(`${this.userUrl}/${id}`)
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
+
+  addPhone (body: Object): Observable<Phonebook[]> {
+
+    let bodyString = JSON.stringify(body);
+    // console.log(bodyString);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post(this.userUrl, body, options)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+  deleteList(id: string): Observable<Phonebook[]>{
+    return this.http.delete(`${this.userUrl}/${id}`)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
+
 }
 

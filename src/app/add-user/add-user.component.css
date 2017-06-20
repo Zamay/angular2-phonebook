@@ -5,3 +5,6 @@
 .ng-invalid:not(form)  {
     border-bottom: 5px solid red;
 }
+
+input.ng-touched.ng-invalid {border:solid red 2px;}
+input.ng-touched.ng-valid {border:solid green 2px;}

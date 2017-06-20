@@ -15,8 +15,8 @@ import {HttpService} from "../service/http.service";
   styleUrls: ["../../../node_modules/bootstrap/dist/css/bootstrap.css"]
 })
 export class PhonebookDetailsComponent implements OnInit {
-  phonebook: Phonebook;
-
+  phonebook: any;
+  userId: string;
 
 
   // ActivatedRoute - содержит информацию о маршруте связанную с компонентом, который загружен в outlet
@@ -27,12 +27,18 @@ export class PhonebookDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-      .forEach((params: Params) => {
-        let id = +params["id"];
-        this.phonebook = this.httpService.getPhonobook(id);
-      })
+    this.activatedRoute.params.subscribe((params: Params) => this.userId = params["id"] );
+    this.httpService.getPhonobook(this.userId)
+      .subscribe((data: Response) => {
+        this.phonebook = data.json();
+    })
+  }
 
+  deleteList(){
+    this.activatedRoute.params.subscribe((params: Params) => this.userId = params["id"] );
+    this.httpService.deleteList(this.userId)
+      .subscribe((data) => data );
+    this.goBack()
   }
 
   goBack(): void {

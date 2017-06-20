@@ -5,8 +5,6 @@ import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
 import {Response} from "@angular/http";
 
-
-
 @Component({
   moduleId: module.id,
   selector: "phrase-list",
