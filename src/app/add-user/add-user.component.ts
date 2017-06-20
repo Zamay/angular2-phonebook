@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
 import { NgForm} from '@angular/forms';
-
+import { Location } from '@angular/common';
 
 @Component({
   moduleId: module.id,
@@ -12,12 +12,14 @@ import { NgForm} from '@angular/forms';
 })
 export class AddUserComponent {
 
-
-  constructor(private httpService: HttpService) {
-  }
+  constructor(
+    private httpService: HttpService,
+    private location: Location
+  ) { }
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
+    // console.log(form.value);
     this.httpService.addPhone(form.value).subscribe((data) => data)
+    this.location.back(); // не обновляет страницу с новыми данными !!
   }
 }
