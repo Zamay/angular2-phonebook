@@ -1,11 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
-
-import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
-// import {PhonebookListComponent} from "../phonebook-list/phonebook-list.component";
-
+import {NgForm} from "@angular/forms";
 
 @Component({
   moduleId: module.id,
@@ -31,9 +28,9 @@ export class PhonebookDetailsComponent implements OnInit {
       })
   }
 
-  editList() {
-    // ...
-    // this.httpService.updatePhone().subscribe((data) => data);
+  editList(form: NgForm) {
+    this.httpService.updatePhone(form.value).subscribe((data) => data);
+    // this.goBack();
   }
 
   deleteList() {

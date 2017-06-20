@@ -1,29 +1,46 @@
-<div *ngIf="phonebook">
+<div class="container" *ngIf="phonebook">
   <h2>Подробная инфа о {{phonebook.firstName + ' ' + phonebook.secondName}}</h2>
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Имя</th>
-      <th>Фамилия</th>
-      <th>Телефон</th>
-      <th>Адресс</th>
-      <th>Дата</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>{{phonebook.id}}</td>
-      <td><input type="text" [(ngModel)]="phonebook.firstName"></td>
-      <td>{{phonebook.secondName}}</td>
-      <td>{{phonebook.phone}}</td>
-      <td>{{phonebook.address}}</td>
-      <td>{{phonebook.createdAt}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <form class="form-horizontal" #myForm="ngForm" (ngSubmit)="editList(myForm)">
+    <div class="form-group">
+      <label class="col-sm-2 control-label" >Id</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" readonly [(ngModel)]="phonebook.id" name="id" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" >Имя</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="phonebook.firstName" name="firstName" placeholder="firstName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label  class="col-sm-2 control-label">Фамилия</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="phonebook.secondName" name="secondName" placeholder="lastName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Номер</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="phonebook.phone" name="phone" placeholder="phone">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Адрес</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" [(ngModel)]="phonebook.address" name="address" placeholder="address">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">createdAt</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" readonly [(ngModel)]="phonebook.createdAt" name="createdAt">
+      </div>
+    </div>
+    <br>
+    <button (click)="goBack()" class="btn btn-default">Назад</button>
+    <button  class="btn btn-primary">Редактировать</button>
+    <button (click)="deleteList()" class="btn btn-danger">Удалить</button>
+  </form>
 
-  <button (click)="goBack()" class="btn btn-default">Назад</button>
-  <button (click)="editList()"   class="btn btn-primary">Редактировать</button>
-  <button (click)="deleteList()" class="btn btn-danger">Удалить</button>
 </div>
