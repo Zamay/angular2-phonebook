@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
 import {HttpService} from "../service/http.service";
@@ -12,8 +12,13 @@ import * as moment from 'moment';
   styleUrls: ["../../../node_modules/bootstrap/dist/css/bootstrap.css"]
 })
 export class PhonebookDetailsComponent implements OnInit {
-  phonebook: any;
-  userId: string;
+  public phonebook: any;
+  public userId: string;
+  public myDate: any = '';
+  // @Input() serverDate: number;
+
+  // this.phonebook.createdAt
+  // [serverDate]="phonebook.createdAt"
 
   constructor(
     private router: Router,
@@ -27,22 +32,21 @@ export class PhonebookDetailsComponent implements OnInit {
     this.httpService.getPhonobook(this.userId)
       .subscribe((data: Response) => {
         this.phonebook = data.json();
-      })
+        this.myDate = moment(this.phonebook.createdAt).format('h:mm:ss a, DD-MM-YYYY');
+      });
   }
 
   editList(form: NgForm) {
     this.httpService.updatePhone(form.value).subscribe((data) => data);
   }
 
-  getDate(){
-    console.log(moment(1486558567).format('h:mm:ss a, DD-MM-YYYY'));
-  }
-
   deleteList() {
-    this.activatedRoute.params.subscribe((params: Params) => this.userId = params["id"]);
     this.httpService.deletePhone(this.userId)
-      .subscribe((data) => data);
-    this.goBack()
+      .subscribe((data) => {
+        data;
+        this.goBack();
+      } );
+
   }
 
   goBack(): void {

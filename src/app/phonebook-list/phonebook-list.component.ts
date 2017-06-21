@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, AfterViewInit, OnChanges} from "@angular/core";
 import {Router} from "@angular/router"
 
 import {Phonebook} from "../phonebook";
@@ -13,7 +13,7 @@ import {Response} from "@angular/http";
 })
 export class PhonebookListComponent implements OnInit {
 
-  phonebooks: Phonebook[];
+  phonebooks: Phonebook[] = [];
 
   constructor(
     private router: Router,
@@ -23,6 +23,10 @@ export class PhonebookListComponent implements OnInit {
   ngOnInit() {
     this.httpService.getData().subscribe(resp => this.phonebooks = resp);
   }
+
+  // ngOnChanges() {
+  //   this.httpService.getData().subscribe((resp: Phonebook[]) => {this.phonebooks = resp});
+  // }
 
   onSelect(selected: Phonebook) {
     // console.log(selected);

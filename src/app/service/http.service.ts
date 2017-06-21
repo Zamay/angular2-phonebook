@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
 @Injectable()
 export class HttpService {
   private userUrl = 'http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones';
-
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+  private options = new RequestOptions({ headers: this.headers });
   constructor( private http: Http){}
 
   // Метод для получения всех ...
@@ -25,21 +26,16 @@ export class HttpService {
 
   addPhone (body: Object): Observable<Phonebook[]> {
     let bodyString = JSON.stringify(body);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
 
-    return this.http.post(this.userUrl, body, options)
+    return this.http.post(this.userUrl, body, this.options)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   updatePhone (body: Object): Observable<Phonebook[]> {
-    console.log(body);
     let bodyString = JSON.stringify(body);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(`${this.userUrl}/${body['id']}`, body, options)
+    return this.http.put(`${this.userUrl}/${body['id']}`, body, this.options)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }

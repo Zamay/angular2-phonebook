@@ -3,6 +3,7 @@ import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
 import { NgForm} from '@angular/forms';
 import { Location } from '@angular/common';
+import {Router} from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -13,13 +14,16 @@ import { Location } from '@angular/common';
 export class AddUserComponent {
 
   constructor(
+    private router: Router,
     private httpService: HttpService,
     private location: Location
   ) { }
 
   onSubmit(form: NgForm) {
     // console.log(form.value);
-    this.httpService.addPhone(form.value).subscribe((data) => data)
-    this.location.back(); // не обновляет страницу с новыми данными !!
+    this.httpService.addPhone(form.value).subscribe((data) => {
+      data;
+      this.router.navigate(["phonebooks"])
+    } )
   }
 }
