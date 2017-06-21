@@ -35,7 +35,7 @@ export class PhonebookDetailsComponent implements OnInit {
   }
 
   getDate(){
-    console.log(moment(1486558567).format('h:mm:ss a, DD-MM-YYYY'));;
+    console.log(moment(1486558567).format('h:mm:ss a, DD-MM-YYYY'));
   }
 
   deleteList() {
@@ -46,6 +46,6 @@ export class PhonebookDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(["phonebooks"]);
   }
 }

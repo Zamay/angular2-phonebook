@@ -20,5 +20,8 @@ export const routes: Routes = [
     {
         path: "add",
         component: AddUserComponent
+    },
+    {   path: '**',
+        redirectTo: 'phonebooks'
     }
 ];
