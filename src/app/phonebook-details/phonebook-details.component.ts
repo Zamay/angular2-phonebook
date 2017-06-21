@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from "@angular/router";
 import {Location} from '@angular/common';
 import {HttpService} from "../service/http.service";
 import {NgForm} from "@angular/forms";
+import * as moment from 'moment';
 
 @Component({
   moduleId: module.id,
@@ -15,6 +16,7 @@ export class PhonebookDetailsComponent implements OnInit {
   userId: string;
 
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
     private location: Location
@@ -30,7 +32,10 @@ export class PhonebookDetailsComponent implements OnInit {
 
   editList(form: NgForm) {
     this.httpService.updatePhone(form.value).subscribe((data) => data);
-    // this.goBack();
+  }
+
+  getDate(){
+    console.log(moment(1486558567).format('h:mm:ss a, DD-MM-YYYY'));;
   }
 
   deleteList() {
