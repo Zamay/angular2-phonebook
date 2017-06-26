@@ -26,6 +26,7 @@ export class PhonebookDetailsComponent implements OnInit {
     this.httpService.getPhonobook(this.userId)
       .subscribe((data: Response) => {
         this.phonebook = data.json();
+        console.log(data);
         this.myDate = moment(this.phonebook.createdAt).format('h:mm:ss a, DD-MM-YYYY');
       });
   }

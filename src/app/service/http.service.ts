@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 
 @Injectable()
 export class HttpService {
-  private userUrl = 'http://589b1131bc99bf120037b98c.mockapi.io/api/v1/phones';
+  private userUrl = 'http://595165e7138d63001132bbd0.mockapi.io/api/v1/phones';
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private options = new RequestOptions({ headers: this.headers });
   constructor( private http: Http){}
@@ -25,17 +25,13 @@ export class HttpService {
   }
 
   addPhone (body: Object): Observable<Phonebook[]> {
-    let bodyString = JSON.stringify(body);
-
     return this.http.post(this.userUrl, body, this.options)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   updatePhone (body: Object): Observable<Phonebook[]> {
-    let bodyString = JSON.stringify(body);
-
-    return this.http.put(`${this.userUrl}/${body['id']}`, body, this.options)
+     return this.http.put(`${this.userUrl}/${body['id']}`, body, this.options)
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
@@ -45,7 +41,6 @@ export class HttpService {
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
-
 
 }
 
