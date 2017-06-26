@@ -1,6 +1,5 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
-import {Location} from '@angular/common';
 import {HttpService} from "../service/http.service";
 import {NgForm} from "@angular/forms";
 import * as moment from 'moment';
@@ -15,16 +14,11 @@ export class PhonebookDetailsComponent implements OnInit {
   public phonebook: any;
   public userId: string;
   public myDate: any = '';
-  // @Input() serverDate: number;
-
-  // this.phonebook.createdAt
-  // [serverDate]="phonebook.createdAt"
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private httpService: HttpService,
-    private location: Location
+    private httpService: HttpService
   ) { }
 
   ngOnInit() {
@@ -45,7 +39,7 @@ export class PhonebookDetailsComponent implements OnInit {
       .subscribe((data) => {
         data;
         this.goBack();
-      } );
+      });
 
   }
 

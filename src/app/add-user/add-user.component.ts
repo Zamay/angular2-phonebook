@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
-import { NgForm} from '@angular/forms';
-import { Location } from '@angular/common';
+import {NgForm} from '@angular/forms';
+import {Location} from '@angular/common';
 import {Router} from "@angular/router";
 
 @Component({
@@ -15,15 +15,13 @@ export class AddUserComponent {
 
   constructor(
     private router: Router,
-    private httpService: HttpService,
-    private location: Location
+    private httpService: HttpService
   ) { }
 
   onSubmit(form: NgForm) {
-    // console.log(form.value);
     this.httpService.addPhone(form.value).subscribe((data) => {
       data;
       this.router.navigate(["phonebooks"])
-    } )
+    })
   }
 }

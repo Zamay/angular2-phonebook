@@ -3,7 +3,6 @@ import {Router} from "@angular/router"
 
 import {Phonebook} from "../phonebook";
 import {HttpService} from "../service/http.service";
-import {Response} from "@angular/http";
 
 @Component({
   moduleId: module.id,
@@ -24,12 +23,7 @@ export class PhonebookListComponent implements OnInit {
     this.httpService.getData().subscribe(resp => this.phonebooks = resp);
   }
 
-  // ngOnChanges() {
-  //   this.httpService.getData().subscribe((resp: Phonebook[]) => {this.phonebooks = resp});
-  // }
-
   onSelect(selected: Phonebook) {
-    // console.log(selected);
     this.router.navigate(["phonebook", selected.id]);
   }
 }
